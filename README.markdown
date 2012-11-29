@@ -3,4 +3,5 @@ This is a calculator built in about 2 hours after submitting $10 to our office P
 Also included is `convertformat.html` that contains the code needed to convert `.csv` output from excel into a nested array suitable for consumption by the methods in `/js/lotto.js`
 ###Enhancements that could be made
 * Provide a way to enter your numbers into the table
-* Find a way to pull live Powerball results (twitter?)
+* Find a way to pull live Powerball results (api,twitter?)
+* Track individual contributions/payouts
