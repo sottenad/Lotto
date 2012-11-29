@@ -5,3 +5,4 @@ Also included is `convertformat.html` that contains the code needed to convert `
 * Provide a way to enter your numbers into the table
 * Find a way to pull live Powerball results (api,twitter?)
 * Track individual contributions/payouts
+* Historical Results (found in plaintext at the powerball site
