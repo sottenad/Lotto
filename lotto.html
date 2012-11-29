@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lotto</title>
+	
+	<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/lotto.js"></script>
+	<style>
+		.match{color:#000; font-weight:bold; }
+		.matches{font-weight:bold;}
+		input, textarea, .uneditable-input{
+			width:55px;
+		}
+		#total{
+			padding:30px;
+			background:#f3f3f3;
+		}
+		#total h4{
+			font-size:30px;
+			line-height:38px;
+		}
+		#tools{
+			padding:30px;
+			background:#f3f3f3;
+		}
+		#tools a{
+			margin:8px;
+			width:120px
+		}
+		
+		.hero-unit{
+			color:#fff;
+			background: #eee url(img/banner.jpg);
+			border-radius:0;
+		}
+		.hero-unit img{
+			position:absolute;
+			top:45px;
+			right:100px;
+		}
+		.affix{
+			top:20px;
+			width:215px;
+		}
+	</style>
+</head>
+<body>
+<div id="fb-root"></div>
+
+
+
+		<div class="jumbotron masthead">
+			<div class="hero-unit">
+			  <h2>Powerball Calculator</h2>
+			  <img src="img/logo-br-tag.png"/>
+			  
+			</div>
+		</div>
+
+<div class="container">
+	<div class="row-fluid" >
+		<div class="span3">
+			<div data-spy="affix" data-offset-top="200">
+			<br />
+				<div id="total" class="well alert alert-info">
+					<span>Total Amount Won</span>
+					<h4>$0</h4>
+				</div>
+				<div id="stats" class="well">
+					<h5>My Stats</h5>
+					<ul>
+						<li>Payout: <a href="#" id="amtdue"></a></li>
+						<li>Total <span id="wonlost"></span></li>
+					</ul>
+				</div>
+				<div id="tools" class="well">
+					<h5>Tools</h5>
+					<a href="#" class="btn" id="reset">Reset Numbers</a><br />
+					<a href="#" class="btn" id="random">Random Numbers</a><br />
+					<a href="#" class="btn" id="hide">Hide Losers</a>
+				</div>
+
+			</div>
+		</div>
+		<div class="span8">
+			<h3>Enter Values</h3>
+			<table class="table">
+				<thead>
+				<tr class="table-bordered">
+						<th>Ball 1</th>
+						<th>Ball 2</th>
+						<th>Ball 3</th>
+						<th>Ball 4</th>
+						<th>Ball 5</th>
+						<th>Powerball</th>
+					</tr>
+					<tr class="table-bordered">
+						<th><input type="text" class="standard" /></th>
+						<th><input type="text" class="standard" /></th>
+						<th><input type="text" class="standard" /></th>
+						<th><input type="text" class="standard" /></th>
+						<th><input type="text" class="standard" /></th>
+						<th><input type="text" class="powerball" /></th>
+					</tr>
+				</thead>
+			</table>
+			<h4>Results <small></small></h4>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Row 1</th>
+						<th>Row 2</th>
+						<th>Row 3</th>
+						<th>Row 4</th>
+						<th>Row 5</th>
+						<th>Powerball</th>
+						<th>Matches</th>
+						<th>Value</th>
+					</tr>
+				</thead>
+				<tbody data-bind="foreach: sets">
+					
+				</tbody>
+			</table>
+		</div><!--/span8-->
+	</div>
+</div>
+</body>
+</html>
