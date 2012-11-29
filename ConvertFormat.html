@@ -1,0 +1,91 @@
+<html>
+<head>
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js"></script>
+</head>
+
+<body>
+
+<textarea id="CSVinput" rows="10" cols="20" style="width:500px;"></textarea>
+<span id="processCSVinput">Process</span>
+</br>
+Errors:
+<div class="errorArea"></div>
+Valid:
+<div class="outputArea"></div>
+<script type="text/javascript">
+
+	$('#processCSVinput').click(function(){
+		var outputString = "[";
+		var errorString = "";
+		var CSVtext = $('#CSVinput').val();
+		//alert(CSVtext);
+		var CSVarray = CSVtext.split(/\n/);
+		for(var i=0; i< CSVarray.length; i++){
+			if(CSVarray[i]!=",,,,,"){ // Ignore "blank" rows
+				var tempRow = "[";
+				var isValid = true;
+				var rowArray = CSVarray[i].split(',');			
+				if(rowArray.length!=6){
+					isValid = false;
+					errorString += "Not enough numbers on row " + i + " : " + CSVarray[i] + "<br\>";
+				}else{
+					for(var j=0; j< rowArray.length; j++){
+						var number = rowArray[j];
+						if(number.length<1 || !jQuery.isNumeric(number)){
+							
+							isValid = false;
+							errorString += "Invalid number '"+number+"' in row "+i+" : " + CSVarray[i] + "<br\>";
+						}
+						else{
+							if(j<5){
+								if(number>59){
+									isValid = false;
+									errorString += "Number '"+number+"' too high in row "+i+" : " + CSVarray[i] + "<br\>";
+								}
+								else{
+									tempRow += number+",";
+								}
+							}else{
+								// Powerball
+								if(number>39){
+									isValid = false;
+									errorString += "Number '"+number+"' too high in row "+i+" : " + CSVarray[i] + "<br\>";
+								}
+								else{
+									tempRow += number;
+								}
+							}
+						}
+						if(!isValid){
+							break;
+						}
+					}
+				}	
+
+				if(isValid){
+					tempRow += "],";
+					outputString += tempRow;
+					
+				}else{
+				
+				//alert("Error processing: " + CSVarray[i]);
+				}
+			}
+		}
+		
+		if(outputString.length>5){
+			outputString = outputString.slice(0, -1); // Remove last comma
+			outputString += "]";
+		}else{
+			outputString = "No values found.";
+		}
+	
+		$('.errorArea').html(errorString);
+		$('.outputArea').html(outputString);
+		
+	});
+
+</script>
+
+</body>
+</html>
