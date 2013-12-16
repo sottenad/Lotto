@@ -38,7 +38,7 @@ Valid:
 						}
 						else{
 							if(j<5){
-								if(number>59){
+								if(number>75){
 									isValid = false;
 									errorString += "Number '"+number+"' too high in row "+i+" : " + CSVarray[i] + "<br\>";
 								}
@@ -47,7 +47,7 @@ Valid:
 								}
 							}else{
 								// Powerball
-								if(number>39){
+								if(number>15){
 									isValid = false;
 									errorString += "Number '"+number+"' too high in row "+i+" : " + CSVarray[i] + "<br\>";
 								}
